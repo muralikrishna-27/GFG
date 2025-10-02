@@ -1,16 +1,13 @@
 class Solution {
-    int maxSubarraySum(int[] arr) {
+    int maxSubarraySum(int[] nums) {
         // Code here
-        int mx = Integer.MIN_VALUE;
-        int cs = 0;
-        for(int n : arr){
-            cs = cs + n;
-            mx = Math.max(mx,cs);
-            if(cs<0){
-                cs = 0;
-            }
+                int mx = Integer.MIN_VALUE;
+        int count = 0;
+        for(int n:nums){
+            count += n;
+            mx = Math.max(mx,count);
+            if(count<0) count=0; 
         }
         return mx;
-        
     }
 }
