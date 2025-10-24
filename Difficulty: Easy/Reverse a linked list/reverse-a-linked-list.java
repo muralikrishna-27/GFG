@@ -13,15 +13,12 @@ class Node {
 class Solution {
     Node reverseList(Node head) {
         // code here
-        Node prev,next,curr;
-        prev=next=null;
-        curr=head;
-        while(curr!=null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
+        if(head==null || head.next==null) return head;
+        Node newHead = reverseList(head.next);
+        Node front = head.next;
+        front.next = head;
+        head.next=null;
+
+        return newHead;
     }
 }
