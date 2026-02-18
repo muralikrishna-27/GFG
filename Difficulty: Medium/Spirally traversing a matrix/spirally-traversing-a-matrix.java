@@ -1,22 +1,29 @@
 class Solution {
-    public ArrayList<Integer> spirallyTraverse(int[][] matrix) {
+    public ArrayList<Integer> spirallyTraverse(int[][] mat) {
         // code here
+        int m = mat.length, n= mat[0].length;
         ArrayList<Integer> res = new ArrayList<>();
-        int n = matrix.length;//row
-        int m = matrix[0].length;//column
-        int top =0, bot = n-1;
-        int left = 0, right = m-1;
-        while(top<=bot && left<=right){
-            for(int i=left; i<=right; i++) res.add(matrix[top][i]);
+        int top=0,bottom=m-1;
+        int left=0,right=n-1;
+        while(top<=bottom && left<=right){
+            for(int i=left;i<=right;i++){
+                res.add(mat[top][i]);
+            }
             top++;
-            for(int i=top; i<=bot; i++) res.add(matrix[i][right]);
+            for(int i=top; i<=bottom; i++){
+                res.add(mat[i][right]);
+            }
             right--;
-            if(top<=bot){
-                for(int i=right; i>=left; i--) res.add(matrix[bot][i]);
-                bot--;
+            if(top<=bottom){
+                for(int i=right;i>=left;i--){
+                    res.add(mat[bottom][i]);
+                }
+                bottom--;
             }
             if(left<=right){
-                for(int i=bot; i>=top; i--) res.add(matrix[i][left]);
+                for(int i=bottom;i>=top;i--){
+                    res.add(mat[i][left]);
+                }
                 left++;
             }
         }
