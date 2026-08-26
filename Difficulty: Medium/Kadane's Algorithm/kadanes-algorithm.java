@@ -1,7 +1,7 @@
 class Solution {
     int maxSubarraySum(int[] nums) {
         // Code here
-                int mx = Integer.MIN_VALUE;
+        int mx = Integer.MIN_VALUE;
         int count = 0;
         for(int n:nums){
             count += n;
